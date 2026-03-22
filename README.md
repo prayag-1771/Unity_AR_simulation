@@ -437,3 +437,41 @@ git checkout --conflict=merge README.md
 git add README.md
 git commit
 ```
+
+---
+
+## Live Styled Preview (Rendered in README)
+
+<div style="max-width:980px;margin:16px auto;padding:18px;border:1px solid #1f2937;border-radius:14px;background:linear-gradient(180deg,#0f172a,#111827);color:#e5e7eb;font-family:Segoe UI,Roboto,Arial,sans-serif;">
+  <div style="padding:14px;border:1px solid #334155;border-radius:12px;background:linear-gradient(180deg,rgba(56,189,248,0.12),rgba(34,211,238,0.06));">
+    <h3 style="margin:0 0 8px 0;color:#e2e8f0;">Unity AR Simulation</h3>
+    <p style="margin:0;color:#cbd5e1;line-height:1.5;">
+      Unity-based augmented reality simulation for rapid prototyping, scene validation, and XR workflow testing.
+    </p>
+    <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;">
+      <span style="padding:4px 10px;border:1px solid #334155;border-radius:999px;background:#0b1220;color:#bae6fd;font-size:12px;">Unity</span>
+      <span style="padding:4px 10px;border:1px solid #334155;border-radius:999px;background:#0b1220;color:#bae6fd;font-size:12px;">C#</span>
+      <span style="padding:4px 10px;border:1px solid #334155;border-radius:999px;background:#0b1220;color:#bae6fd;font-size:12px;">AR/XR</span>
+      <span style="padding:4px 10px;border:1px solid #334155;border-radius:999px;background:#0b1220;color:#bae6fd;font-size:12px;">UPM</span>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:12px;">
+    <div style="border:1px solid #334155;border-radius:10px;padding:10px;background:#0b1220;">
+      <strong style="color:#67e8f9;">Purpose</strong>
+      <p style="margin:6px 0 0 0;color:#cbd5e1;line-height:1.45;">Build and iterate AR scene behavior in a clean Unity project scaffold.</p>
+    </div>
+    <div style="border:1px solid #334155;border-radius:10px;padding:10px;background:#0b1220;">
+      <strong style="color:#67e8f9;">Architecture</strong>
+      <p style="margin:6px 0 0 0;color:#cbd5e1;line-height:1.45;">Assets, scripts, and settings feed runtime AR simulation flow.</p>
+    </div>
+    <div style="border:1px solid #334155;border-radius:10px;padding:10px;background:#0b1220;">
+      <strong style="color:#67e8f9;">Workflow</strong>
+      <p style="margin:6px 0 0 0;color:#cbd5e1;line-height:1.45;">Edit, Play Mode test, validate, commit, and open PR.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:12px;padding:10px 12px;border-left:3px solid #34d399;background:rgba(52,211,153,0.12);border-radius:8px;color:#d1fae5;">
+    This block uses inline CSS directly in README HTML, so styles are applied without external CSS files.
+  </div>
+</div>
