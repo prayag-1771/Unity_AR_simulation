@@ -398,3 +398,42 @@ No license file is currently defined in this repository. Add a `LICENSE` file to
   </tr>
 </table>
 ```
+
+---
+
+## Git Merge Conflict Quick Fix
+
+If you see a merge conflict while pulling or merging branches, use this workflow:
+
+1. Check conflicted files:
+   ```bash
+   git status
+   ```
+2. Open each conflicted file and resolve markers:
+   - `<<<<<<< HEAD`
+   - `=======`
+   - `>>>>>>> branch-name`
+3. Keep the correct final content and remove all conflict marker lines.
+4. Mark files as resolved:
+   ```bash
+   git add <resolved-file>
+   ```
+5. Finish the merge:
+   ```bash
+   git commit
+   ```
+6. Verify:
+   ```bash
+   git status
+   ```
+
+### If conflict is only in README
+
+Use this helper flow to keep both sides and then edit:
+
+```bash
+git checkout --conflict=merge README.md
+# manually edit README.md to final version
+git add README.md
+git commit
+```
