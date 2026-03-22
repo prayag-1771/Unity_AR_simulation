@@ -1,51 +1,42 @@
 # Unity AR Simulation
 
-A production-ready Unity project template for building, validating, and iterating augmented reality experiences with clear architecture, reproducible setup, and contributor-friendly workflows.
+A Unity-based augmented reality simulation project focused on rapid prototyping, scene testing, and XR workflow experimentation.
 
-## Project Description
-Unity AR Simulation is designed as a practical foundation for AR/XR prototyping. It combines a standard Unity project layout with structured documentation so contributors can quickly open the project, understand where logic lives, and start shipping scene and interaction improvements with confidence.
-
----
+## Project Description (Quick View)
+This repository contains a Unity AR simulation environment intended for experimenting with AR scenes, scripts, and project settings in a structured and reproducible way.
 
 ## Table of Contents
-1. [Why This Project Exists](#why-this-project-exists)
-2. [Core Capabilities](#core-capabilities)
+1. [Overview](#overview)
+2. [Key Features](#key-features)
 3. [System Architecture](#system-architecture)
-4. [Runtime Lifecycle](#runtime-lifecycle)
-5. [Repository Structure](#repository-structure)
-6. [Technical Stack](#technical-stack)
-7. [Prerequisites](#prerequisites)
-8. [Quick Start](#quick-start)
-9. [Build and Deployment](#build-and-deployment)
-10. [Configuration Guide](#configuration-guide)
-11. [Development Workflow](#development-workflow)
-12. [Quality and Validation Checklist](#quality-and-validation-checklist)
-13. [Troubleshooting Guide](#troubleshooting-guide)
-14. [Performance Notes for AR](#performance-notes-for-ar)
-15. [Security and Repo Hygiene](#security-and-repo-hygiene)
-16. [Roadmap](#roadmap)
-17. [Contributing](#contributing)
-18. [License](#license)
+4. [Project Structure](#project-structure)
+5. [Technology Stack](#technology-stack)
+6. [Getting Started](#getting-started)
+7. [Build and Run](#build-and-run)
+8. [Development Workflow](#development-workflow)
+9. [Troubleshooting](#troubleshooting)
+10. [Roadmap](#roadmap)
+11. [Contributing](#contributing)
+12. [License](#license)
 
 ---
 
-## Why This Project Exists
-AR projects often lose time on setup friction, package mismatch, and undocumented scene logic. This repository is structured to solve that by providing:
+## Overview
+The project is organized as a standard Unity application with dedicated directories for assets, scenes, scripts, package dependencies, and project-level configuration. It is suitable for:
 
-- A predictable Unity folder architecture
-- Clear setup and execution steps
-- Shared conventions for branch and commit workflows
-- Easy onboarding for new collaborators
-- Repeatable scene testing and AR iteration loops
+- AR simulation and concept validation
+- Fast iteration on scene logic and scripts
+- Testing Unity/XR project configurations
+- Local development and team collaboration via version control
 
 ---
 
-## Core Capabilities
-- Unity-based AR simulation workspace for rapid prototyping
-- Dedicated scene and script directories for clean organization
-- Unity Package Manager-driven dependency control
-- Project-level configuration for graphics, input, physics, and XR
-- IDE-friendly C# project/solution files for local development
+## Key Features
+- Unity project scaffold ready for AR simulation workflows
+- Isolated folder structure for scenes and scripts
+- Managed package dependencies via Unity Package Manager
+- Editable project settings for graphics, input, physics, XR, and build behavior
+- Compatible with iterative development in Visual Studio Code or Visual Studio
 
 ---
 
@@ -59,44 +50,33 @@ flowchart TD
     C --> E[Scripts]
     B --> F[ProjectSettings]
     B --> G[Packages]
-    G --> H[UPM Dependencies]
-    D --> I[Runtime Scene Graph]
-    E --> J[Behavior Layer]
-    F --> K[Platform + XR Config]
-    I --> L[AR Simulation Runtime]
-    J --> L
-    K --> L
+    G --> H[Unity Package Manager Dependencies]
+    D --> I[AR Simulation Runtime]
+    E --> I
+    F --> I
 ```
 
-### Architectural Notes
-- **Assets/Scenes**: Visual and interaction context loaded during simulation.
-- **Assets/Scripts**: C# logic driving behaviors and state updates.
-- **ProjectSettings**: Centralized Unity configuration that affects editor and runtime behavior.
-- **Packages/manifest.json**: Source of truth for package dependencies.
-
----
-
-## Runtime Lifecycle
+### Runtime Flow
 
 ```mermaid
 sequenceDiagram
     participant Dev as Developer
-    participant UE as Unity Editor
-    participant SC as Scene Loader
-    participant CS as C# Layer
-    participant XR as AR Runtime
+    participant Editor as Unity Editor
+    participant Scene as Scene System
+    participant Script as C# Scripts
+    participant XR as XR/AR Runtime
 
-    Dev->>UE: Open project
-    Dev->>SC: Load target scene
-    UE->>CS: Compile scripts
-    SC->>XR: Initialize simulation context
-    CS->>XR: Apply interaction logic
-    XR-->>Dev: Render and update frame output
+    Dev->>Editor: Open project
+    Dev->>Scene: Load simulation scene
+    Editor->>Script: Compile and attach behaviors
+    Scene->>XR: Initialize AR simulation context
+    Script->>XR: Update logic and interaction states
+    XR-->>Dev: Render and simulate AR output
 ```
 
 ---
 
-## Repository Structure
+## Project Structure
 
 ```text
 Unity_AR_simulation/
@@ -108,87 +88,63 @@ Unity_AR_simulation/
 │   └── packages-lock.json
 ├── ProjectSettings/
 ├── UserSettings/
-├── Library/                 # Unity-generated local cache
-├── Temp/                    # Unity temporary files
-├── Logs/                    # Editor/import logs
+├── Library/            # Generated by Unity (local cache)
+├── Temp/               # Generated temporary files
+├── Logs/               # Editor/import/build logs
 ├── Assembly-CSharp.csproj
 ├── hand_AR.sln
 └── README.md
 ```
 
-### Directory Ownership Guidelines
-- Version control **source directories** (`Assets`, `Packages`, `ProjectSettings`).
-- Avoid committing machine-local generated caches unless explicitly required.
-- Keep scenes and scripts modular to simplify reviews and merges.
+### Important Notes
+- `Assets/` contains source assets you should version control.
+- `Packages/manifest.json` defines Unity package dependencies.
+- `ProjectSettings/` captures editor and runtime configuration.
+- `Library/`, `Temp/`, and most `Logs/` content are generated artifacts.
 
 ---
 
-## Technical Stack
+## Technology Stack
 - **Engine**: Unity
 - **Language**: C#
-- **XR/AR Base**: Unity XR ecosystem (configured via project/package settings)
-- **Dependency Management**: Unity Package Manager
+- **Dependency Management**: Unity Package Manager (UPM)
 - **IDE Support**: Visual Studio / VS Code
-- **VCS**: Git
+- **Version Control**: Git
 
 ---
 
-## Prerequisites
-1. Unity Hub
-2. Unity Editor version matching `ProjectSettings/ProjectVersion.txt`
-3. Git
-4. A supported development IDE (VS/VS Code)
+## Getting Started
 
----
+### Prerequisites
+1. Unity Hub installed
+2. A Unity Editor version matching `ProjectSettings/ProjectVersion.txt`
+3. Git installed
 
-## Quick Start
+### Setup Steps
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone <your-repository-url>
    cd Unity_AR_simulation
    ```
-2. Open Unity Hub, then **Add project from disk**.
-3. Select this repository root.
-4. Launch with the matching Unity Editor version.
-5. Open a scene from `Assets/Scenes/`.
-6. Press **Play** to run the AR simulation loop.
+2. Open Unity Hub and add this project folder.
+3. Launch the project with the recommended Unity Editor version.
+4. Open a scene from `Assets/Scenes/`.
+5. Press **Play** in Unity Editor to run the simulation.
 
 ---
 
-## Build and Deployment
+## Build and Run
 
 ### Run in Editor
-- Open the primary scene.
-- Enter Play Mode and validate interactions.
+- Open the main simulation scene.
+- Press **Play**.
 
-### Build Pipeline (General)
+### Build (General)
 1. Open **File > Build Settings**.
-2. Select target platform.
-3. Add all required scenes to **Scenes In Build**.
-4. Configure **Player Settings** and XR options.
-5. Build and run on target device/emulator.
-
-### Release Checklist
-- Confirm correct Unity editor version.
-- Confirm packages resolved without warning.
-- Confirm scene list and bootstrap scene ordering.
-- Confirm scripting backend/API compatibility.
-- Confirm target platform permissions and capabilities.
-
----
-
-## Configuration Guide
-
-### Important Files
-- `Packages/manifest.json`: controls package dependencies.
-- `Packages/packages-lock.json`: lockfile for reproducibility.
-- `ProjectSettings/ProjectVersion.txt`: expected Unity version.
-- `ProjectSettings/*.asset`: graphics, input, time, physics, XR behavior.
-
-### Recommended Configuration Discipline
-- Change one config domain at a time (e.g., input, graphics, XR).
-- Validate in editor immediately after each config change.
-- Keep config commits isolated for easier rollback.
+2. Select target platform (Android, iOS, Windows, etc.).
+3. Add required scenes to build.
+4. Configure player settings and XR options.
+5. Build and run.
 
 ---
 
@@ -196,94 +152,55 @@ Unity_AR_simulation/
 
 ```mermaid
 flowchart LR
-    A[Plan task] --> B[Implement script or scene change]
-    B --> C[Run Play Mode validation]
-    C --> D[Check console and behavior]
-    D --> E[Commit focused changes]
-    E --> F[Open pull request]
-    F --> G[Address review feedback]
+    A[Create or modify scene/script] --> B[Test in Play Mode]
+    B --> C[Validate AR behavior]
+    C --> D[Commit changes]
+    D --> E[Push and open PR]
 ```
 
-### Branch Naming
-- `feature/<short-name>`
-- `fix/<short-name>`
-- `chore/<short-name>`
-- `docs/<short-name>`
-
-### Commit Style
-Use precise, imperative commit messages:
-- `Add hand gesture interaction bootstrap`
-- `Fix scene initialization order for AR session`
-- `Document build settings for Android target`
+### Suggested Branch Strategy
+- `main`: stable branch
+- `feature/<name>`: new features
+- `fix/<name>`: bug fixes
+- `chore/<name>`: maintenance
 
 ---
 
-## Quality and Validation Checklist
-Before opening a PR:
+## Troubleshooting
 
-- Project opens with no package resolution errors
-- Target scenes load successfully
-- Console is free of new errors
-- Behavioral changes validated in Play Mode
-- README/docs updated when workflow changes
-- Commits are scoped and reviewable
+### Unity version mismatch
+- Check `ProjectSettings/ProjectVersion.txt` and install that editor version in Unity Hub.
 
----
+### Packages not resolving
+- Verify internet access and package registry settings.
+- Reopen project to trigger package restore.
+- Remove `Library/` (if safe) and reopen to force reimport.
 
-## Troubleshooting Guide
-
-### Unity Version Mismatch
-- Symptom: project upgrade prompt or serialization issues.
-- Fix: install exact version from `ProjectSettings/ProjectVersion.txt` and reopen.
-
-### Package Restore Failures
-- Symptom: missing namespaces or unresolved package warnings.
-- Fix: verify network/registry access, reopen project, and if needed rebuild local cache.
-
-### C# Compilation Errors
-- Symptom: scripts not entering Play Mode.
-- Fix: resolve Console errors, class/file naming consistency, and API compatibility settings.
-
-### Unexpected Scene Behavior
-- Symptom: objects not initializing in expected order.
-- Fix: verify scene hierarchy, script execution dependencies, and serialized references.
-
----
-
-## Performance Notes for AR
-- Favor lightweight shaders and optimized materials.
-- Keep update loops focused and avoid unnecessary allocations.
-- Profile in-device when possible; editor performance can differ from target hardware.
-- Reduce scene overdraw and expensive post-processing for mobile targets.
-
----
-
-## Security and Repo Hygiene
-- Do not commit secrets, private keys, or service credentials.
-- Keep generated local artifacts out of versioned changes.
-- Review changes to `ProjectSettings` and `Packages` carefully as they affect all contributors.
+### Scripts not compiling
+- Check Console for C# errors.
+- Ensure script class names match file names when required.
+- Confirm API compatibility settings in Project Settings.
 
 ---
 
 ## Roadmap
-- Expand scene-level design documentation
+- Add detailed scene-level documentation
+- Add architecture notes for AR interaction systems
+- Introduce automated validation checks
 - Add platform-specific deployment guides
-- Introduce automated validation scripts for project health checks
-- Add AR interaction architecture examples
 
 ---
 
 ## Contributing
-1. Create a branch from your latest `main`.
-2. Keep changes focused to one concern per PR.
-3. Include:
+1. Fork and create a feature branch.
+2. Keep commits focused and descriptive.
+3. Open a pull request with:
    - What changed
    - Why it changed
-   - How you validated it
-4. Address review feedback promptly.
-5. Rebase/merge cleanly and keep history understandable.
+   - How it was tested
+4. Request review and address feedback.
 
 ---
 
 ## License
-A license file is not currently present. Add `LICENSE` at repository root to define usage, redistribution, and contribution terms.
+No license file is currently defined in this repository. Add a `LICENSE` file to specify usage and distribution terms.
