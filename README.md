@@ -204,3 +204,236 @@ flowchart LR
 
 ## License
 No license file is currently defined in this repository. Add a `LICENSE` file to specify usage and distribution terms.
+
+---
+
+## Optional Styled Presentation Layer (CSS + HTML)
+
+> This section is additive and does not replace any existing README content.
+> It provides an optional HTML/CSS version for platforms that support embedded styling.
+
+### 1) Drop-in CSS Theme
+
+```html
+<style>
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --muted: #94a3b8;
+    --text: #e5e7eb;
+    --accent: #22d3ee;
+    --accent-2: #38bdf8;
+    --ok: #34d399;
+    --warn: #f59e0b;
+    --border: #1f2937;
+  }
+
+  .ar-wrap {
+    max-width: 980px;
+    margin: 1.25rem auto;
+    padding: 1rem;
+    color: var(--text);
+    background: radial-gradient(1200px 500px at 20% -20%, rgba(56,189,248,.18), transparent 60%),
+                radial-gradient(900px 420px at 110% 10%, rgba(34,211,238,.16), transparent 55%),
+                var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .ar-hero {
+    display: grid;
+    gap: .75rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(56,189,248,.08), rgba(34,211,238,.04));
+  }
+
+  .ar-title {
+    margin: 0;
+    font-size: 1.8rem;
+    letter-spacing: .2px;
+  }
+
+  .ar-sub {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .ar-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: .75rem;
+  }
+
+  .ar-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: .85rem;
+    background: var(--card);
+  }
+
+  .ar-card h4 {
+    margin: 0 0 .45rem 0;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  .ar-card p,
+  .ar-card ul {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.5;
+    font-size: .95rem;
+  }
+
+  .ar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    margin-top: .6rem;
+  }
+
+  .ar-tag {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: .25rem .55rem;
+    font-size: .8rem;
+    color: var(--text);
+    background: rgba(148,163,184,.1);
+  }
+
+  .ar-status {
+    margin-top: 1rem;
+    border-left: 3px solid var(--ok);
+    padding: .55rem .7rem;
+    background: rgba(52,211,153,.08);
+    border-radius: 8px;
+    font-size: .92rem;
+  }
+
+  .ar-note {
+    margin-top: .75rem;
+    border-left: 3px solid var(--warn);
+    padding: .55rem .7rem;
+    background: rgba(245,158,11,.08);
+    border-radius: 8px;
+    font-size: .9rem;
+    color: var(--muted);
+  }
+</style>
+```
+
+### 2) Optional Styled Header Block
+
+```html
+<div class="ar-wrap">
+  <section class="ar-hero">
+    <h2 class="ar-title">Unity AR Simulation</h2>
+    <p class="ar-sub">
+      A Unity-based augmented reality simulation project for rapid prototyping,
+      scene testing, and XR workflow experimentation.
+    </p>
+    <div class="ar-tags">
+      <span class="ar-tag">Unity</span>
+      <span class="ar-tag">C#</span>
+      <span class="ar-tag">XR/AR</span>
+      <span class="ar-tag">UPM</span>
+    </div>
+  </section>
+
+  <section class="ar-grid">
+    <article class="ar-card">
+      <h4>Purpose</h4>
+      <p>Prototype and validate AR scene behavior with predictable project structure.</p>
+    </article>
+    <article class="ar-card">
+      <h4>Architecture</h4>
+      <p>Assets, scripts, and project settings converge into runtime AR simulation.</p>
+    </article>
+    <article class="ar-card">
+      <h4>Workflow</h4>
+      <p>Edit, run in Play Mode, validate behavior, then commit and publish.</p>
+    </article>
+  </section>
+
+  <div class="ar-status">
+    Documentation is actively structured for onboarding, local setup, and repeatable development.
+  </div>
+
+  <div class="ar-note">
+    Note: Some platforms sanitize inline CSS in Markdown rendering. If so, keep this as a reference snippet for docs sites.
+  </div>
+</div>
+```
+
+### 3) Optional Visual Section Divider Style
+
+```html
+<hr style="border: 0; height: 1px; background: linear-gradient(90deg, transparent, #38bdf8, transparent); margin: 1.2rem 0;" />
+```
+
+### 4) Styled Quick Facts Panel
+
+```html
+<table>
+  <tr>
+    <td><strong>Engine</strong></td>
+    <td>Unity</td>
+  </tr>
+  <tr>
+    <td><strong>Primary Language</strong></td>
+    <td>C#</td>
+  </tr>
+  <tr>
+    <td><strong>Dependency Manager</strong></td>
+    <td>Unity Package Manager</td>
+  </tr>
+  <tr>
+    <td><strong>Main Goal</strong></td>
+    <td>AR simulation and experimentation</td>
+  </tr>
+</table>
+```
+
+---
+
+## Git Merge Conflict Quick Fix
+
+If you see a merge conflict while pulling or merging branches, use this workflow:
+
+1. Check conflicted files:
+   ```bash
+   git status
+   ```
+2. Open each conflicted file and resolve markers:
+   - `<<<<<<< HEAD`
+   - `=======`
+   - `>>>>>>> branch-name`
+3. Keep the correct final content and remove all conflict marker lines.
+4. Mark files as resolved:
+   ```bash
+   git add <resolved-file>
+   ```
+5. Finish the merge:
+   ```bash
+   git commit
+   ```
+6. Verify:
+   ```bash
+   git status
+   ```
+
+### If conflict is only in README
+
+Use this helper flow to keep both sides and then edit:
+
+```bash
+git checkout --conflict=merge README.md
+# manually edit README.md to final version
+git add README.md
+git commit
+```
